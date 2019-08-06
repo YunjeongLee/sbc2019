@@ -7,7 +7,7 @@ vaccine_age = [2/12, 4/12, 6/12, 18/12];
 num_grps_val = length(age_grps);
 
 % Initial condition
-S0_val = 0.99 * ones(num_grps_val, 1);
+S0_val = ones(num_grps_val, 1) - 1/N;
 P10_val = zeros(num_grps_val, 1);
 P20_val = zeros(num_grps_val, 1);
 P30_val = zeros(num_grps_val, 1);
