@@ -11,6 +11,7 @@ S0_val = ones(num_grps_val, 1) - 1/N;
 P10_val = zeros(num_grps_val, 1);
 P20_val = zeros(num_grps_val, 1);
 P30_val = zeros(num_grps_val, 1);
+C0_val = zeros(num_grps_val, 1);
 I10_val = 1 - S0_val;
 I20_val = zeros(num_grps_val, 1);
 I30_val = zeros(num_grps_val, 1);
