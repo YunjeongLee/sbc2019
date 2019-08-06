@@ -34,5 +34,5 @@ val(28, 28:end) = b(9) * ones(1, 3);
 val(29, 29:end) = b(9) * ones(1, 2);
 val(30, 30:end) = b(9);
 
-
+val = (val + val') - diag(diag(val));
 
