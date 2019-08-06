@@ -13,6 +13,7 @@ I20_val = zeros(num_grps_val, 1);
 I30_val = zeros(num_grps_val, 1);
 R0_val = zeros(num_grps_val, 1);
 
+% Parameters
 sigma_val = 1/11;
 tau_val = 1/2;
 tauP_val = 1/2;
