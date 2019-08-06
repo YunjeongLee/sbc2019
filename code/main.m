@@ -31,7 +31,6 @@ gamma_val = 365/21;
 c_val = diff(age_grps);
 B_val = N * mu_val;
 
-%% Load contact matrix
 %% Generate vaccine vector
 vacc_val = zeros(num_grps_val, 1);
 for i = 1:num_grps_val
@@ -39,6 +38,9 @@ for i = 1:num_grps_val
     vacc_val(i) = sum(f * ismember(age_grps(i), vaccine_age));
 end
 
+%% Load contact matrix
+b = [0.02, 0.12, 0.23, 0.73, 2.47, 0.95, 0.54, 0.16, 0.00];
+contact_matrix_val = generate_contact_matrix(b, num_grps_val);
 
 %% Generate params
 
