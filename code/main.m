@@ -2,6 +2,9 @@ clear; close all; clc;
 
 %% Parameter values
 N = 40091359;
+age_grps = [0, 2/12, 4/12, 6/12, 1, 18/12, 2:14, 15:5:50, 55:10:75];
+vaccine_age = [2/12, 4/12, 6/12, 18/12];
+num_grps_val = length(age_grps);
 
 % Initial condition
 S0_val = 0.99 * ones(num_grps_val, 1);
