@@ -4,7 +4,7 @@ val = zeros(num_grps);
 
 % Assing values
 val(1, :) = [b(1) * ones(1, 19), b(2) * ones(1, 11)];
-val(2, 2:end) = [b(1) * one(1, 18), b(2) * ones(1, 11)];
+val(2, 2:end) = [b(1) * ones(1, 18), b(2) * ones(1, 11)];
 val(3, 3:end) = [b(2) * ones(1, 17), b(3) * ones(1, 11)];
 val(4, 4:end) = [b(2) * ones(1, 16), b(3) * ones(1, 11)];
 val(5, 5:end) = b(3) * ones(1, 26);
@@ -29,9 +29,9 @@ val(23, 23:end) = [b(7), b(8) * ones(1, 4), b(9) * ones(1, 3)];
 val(24, 24:end) = [b(8) * ones(1, 4), b(9) * ones(1, 3)];
 val(25, 25:end) = [b(8) * ones(1, 3), b(9) * ones(1, 3)];
 val(26, 26:end) = [b(8) * ones(1, 2), b(9) * ones(1, 3)];
-val(27, 26:end) = [b(8), b(9) * ones(1, 3)];
-val(28, 26:end) = b(9) * ones(1, 3);
-val(29, 26:end) = b(9) * ones(1, 2);
+val(27, 27:end) = [b(8), b(9) * ones(1, 3)];
+val(28, 28:end) = b(9) * ones(1, 3);
+val(29, 29:end) = b(9) * ones(1, 2);
 val(30, 30:end) = b(9);
 
 
