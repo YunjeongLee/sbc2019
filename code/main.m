@@ -2,9 +2,16 @@ clear; close all; clc;
 
 %% Parameter values
 N = 40091359;
-S0_val = 0.99;
-I0_val = 1 - S0_val;
-R0_val = 0;
+
+% Initial condition
+S0_val = 0.99 * ones(num_grps_val, 1);
+P10_val = zeros(num_grps_val, 1);
+P20_val = zeros(num_grps_val, 1);
+P30_val = zeros(num_grps_val, 1);
+I10_val = 1 - S0_val;
+I20_val = zeros(num_grps_val, 1);
+I30_val = zeros(num_grps_val, 1);
+R0_val = zeros(num_grps_val, 1);
 
 sigma_val = 1/11;
 tau_val = 1/2;
