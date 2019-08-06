@@ -27,7 +27,9 @@ p_val = [0.95 * ones(3, 1); 0.85; 0.95];
 mu_val = 1/75.5;
 rho1_val = 0.5;
 rho2_val = 0.25;
-gamma = 365/21;
+gamma_val = 365/21;
+c_val = diff(age_grps);
+B_val = N * mu_val;
 
 %% Load contact matrix
 
