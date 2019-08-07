@@ -6,6 +6,7 @@ grid on; grid minor;
 xlabel('time (years)')
 ylabel('Incidence (cases/year per 1,000,000 population)')
 legend(text_for_legend)
+title(group_for_ttl)
 xlim(xlims)
 ylim(ylims)
 set(gca, 'fontsize', 20);
