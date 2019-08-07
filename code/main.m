@@ -36,11 +36,9 @@ B_val = 1/75/365;
 vacc_val = zeros(num_grps_val, 1);
 for i = 1:num_grps_val
     f = p_val * VE;
-    vacc_val(i) = f(1) * kDelta(age_grps(i), vaccine_age(1)) ...
-        + f(2) * kDelta(age_grps(i), vaccine_age(2)) ...
-        + f(3) * kDelta(age_grps(i), vaccine_age(3)) ...
-        + f(4) * kDelta(age_grps(i), vaccine_age(4)) ...
-        + f(5) * kDelta(age_grps(i), vaccine_age(5));
+    for j = 1:length(vaccine_age)
+        vacc_val(i) = vacc_val(i) + f(j) * kDelta(age_grps(i), vaccine_age(j));
+    end
 end
 
 %% Load contact matrix
