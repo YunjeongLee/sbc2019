@@ -68,3 +68,6 @@ fode = @(t, y) model_pertussis(t, y, params);
 time_stamp = 0:50*365;
 options = odeset('NonNegative', 1:num_grps_val*9);
 [~, sol] = ode45(fode, time_stamp, y0, options);
+
+%% Visualization
+visualize(sol, params, time_stamp)
