@@ -47,8 +47,10 @@ ylim([0 500])
 figure('pos', [10 10 1600 900]);
 plot(time_stamp(2:end)/365, (incdI1 + incdI2) * 1e6, 'linewidth', 2)
 xlabel('time (years)')
-ylabel('Incidence (cases/year per 100 000 population)')
 xlim([0 10])
 ylims = get(gca, 'Ylim');
 ylims(1) = 0;
 set(gca, 'Ylim', ylims, 'FontSize', 20)
+ylabel('Incidence (cases/year per 1,000,000 population)')
+ylim([0 100])
+     
