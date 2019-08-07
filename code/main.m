@@ -65,5 +65,6 @@ params = {'contact_matrix', contact_matrix_val; ...
 
 %% Solve ODE
 fode = @(t, y) model_pertussis(t, y, params);
-[~, sol] = ode15s(fode, time_stamp, y0);
 time_stamp = 0:50*365;
+options = odeset('NonNegative', 1:num_grps_val*9);
+[~, sol] = ode45(fode, time_stamp, y0, options);
