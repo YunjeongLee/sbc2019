@@ -63,11 +63,42 @@ params = {'contact_matrix', contact_matrix_val; ...
           'vacc', vacc_val; ...
           'num_grps', num_grps_val};
 
-%% Solve ODE
-fode = @(t, y) model_pertussis(t, y, params);
+%% Change 6 years old and 11 years old vaccination proportion
 time_stamp = 0:50*365;
-options = odeset('NonNegative', 1:num_grps_val*9);
-[~, sol] = ode45(fode, time_stamp, y0, options);
+year6_vaccine = [0.1, 0.7, 0.7];
+year11_vaccine = [0.1, 0.1, 0.7];
+incd_aggregate = zeros(length(time_stamp)-1, length(year6_vaccine));
+for i = 1:length(year6_vaccine)
+    % Copy vaccine proportion
+    p_val_temp = p_val;
+    
+    % Update vaccine proportion
+    p_val_temp(end-1) = year6_vaccine(i);
+    p_val_temp(end) = year11_vaccine(i);
+    
+    % Vaccine update
+    vacc_val = zeros(num_grps_val, 1);
+    f = p_val_temp * VE;
+    for j = 1:length(vaccine_age)
+        vacc_val(i) = vacc_val(i) + f(j) * kDelta(age_grps(i), vaccine_age(j));
+    end
+    
+    % Update params
+    params_temp = params;
+    params_temp{end-1,2} = vacc_val;
+
+    % Solve ODE
+    fode = @(t, y) model_pertussis(t, y, params_temp);
+    options = odeset('NonNegative', 1:num_grps_val*9);
+    [~, sol] = ode45(fode, time_stamp, y0, options);
+    
+    incd = get_incidence(sol, params_temp, time_stamp);
+    incd_aggregate(:,i) = sum(incd(:, 1:3), 2);
+end
 
 %% Visualization
-visualize(sol, params, time_stamp)
+group_for_label = '0-6';
+text_for_legend = {'6 years: 10%, 11 years: 10%', '6 years: 70%, 11 years: 10%', ...
+    '6 years: 70%, 11 years: 70%'};
+ylims = [0, 10];
+visualize(incd_aggregate, time_stamp, group_for_label, text_for_legend, ylims)
