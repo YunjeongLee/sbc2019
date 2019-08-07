@@ -41,13 +41,13 @@ incdI2 = ((previous + next)/2 * dt)';
 incd = incdI1 + incdI2;
 
 figure('pos', [10 10 1600 900]);
-plot(time_stamp(2:end)/365, sum(incdI1 + incdI2, 2) * 1e6, 'linewidth', 2)
+plot(time_stamp(2:end)/365, sum(incd, 2) * 1e6, 'linewidth', 2)
 xlabel('time (years)')
 ylabel('Incidence (cases/year per 1,000,000 population)')
 ylim([0 500])
 
 figure('pos', [10 10 1600 900]);
-plot(time_stamp(2:end)/365, (incdI1 + incdI2) * 1e6, 'linewidth', 2)
+plot(time_stamp(2:end)/365, incd * 1e6, 'linewidth', 2)
 xlabel('time (years)')
 ylabel('Incidence (cases/year per 1,000,000 population)')
 ylim([0 100])
