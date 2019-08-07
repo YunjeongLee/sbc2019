@@ -8,7 +8,7 @@ num_grps_val = length(age_grps);
 pop_age = diff([age_grps, 75*365]')/75/365*N;
 
 % Initial condition
-S0_val = 0.99 * pop_age;
+S0_val = 0.999 * pop_age;
 P10_val = zeros(num_grps_val, 1);
 P20_val = zeros(num_grps_val, 1);
 P30_val = zeros(num_grps_val, 1);
