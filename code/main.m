@@ -78,9 +78,11 @@ for i = 1:length(year6_vaccine)
     
     % Vaccine update
     vacc_val = zeros(num_grps_val, 1);
-    f = p_val_temp * VE;
-    for j = 1:length(vaccine_age)
-        vacc_val(i) = vacc_val(i) + f(j) * kDelta(age_grps(i), vaccine_age(j));
+    for k = 1:num_grps_val
+        f = p_val_temp * VE;
+        for j = 1:length(vaccine_age)
+            vacc_val(k) = vacc_val(k) + f(j) * kDelta(age_grps(k), vaccine_age(j));
+        end
     end
     
     % Update params
