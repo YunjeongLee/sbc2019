@@ -4,9 +4,7 @@ figure('pos', [10 10 1600 900]);
 plot(time_stamp(1:end)/365, incd * 1e6, 'linewidth', 2)
 grid on; grid minor;
 xlabel('time (years)')
-ylabel(sprintf( ...
-    'Incidence of %s age group (cases/year per 1,000,000 population)', ...
-    group_for_label))
+ylabel('Incidence (cases/year per 1,000,000 population)')
 legend(text_for_legend)
 xlim(xlims)
 ylim(ylims)
