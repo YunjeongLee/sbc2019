@@ -19,21 +19,21 @@ R = sol(:, 8*num_grps_+1:9*num_grps_);
 
 dt = time_stamp(2) - time_stamp(1);
 
-    previous_lambda = contact_matrix_ ...
-            * (I1' + rho1_ * I2' + rho2_ * I3');
-    previous = previous_lambda .* S(1:end-1, :)';
-    next_lambda = contact_matrix_ ...
-            * (I1' + rho1_ * I2' + rho2_ * I3');
-    next = next_lambda .* S(2:end, :)';
-    incdI1 = ((previous + next)/2 * dt)';
+previous_lambda = contact_matrix_ ...
+    * (I1' + rho1_ * I2' + rho2_ * I3');
+previous = previous_lambda .* S(1:end-1, :)';
+next_lambda = contact_matrix_ ...
+    * (I1' + rho1_ * I2' + rho2_ * I3');
+next = next_lambda .* S(2:end, :)';
+incdI1 = ((previous + next)/2 * dt)';
 
-    previous_lambda = contact_matrix_ ...
-            * (I1' + rho1_ * I2' + rho2_ * I3');
-    previous = previous_lambda .* P1(1:end-1, :)';
-    next_lambda = contact_matrix_ ...
-            * (I1' + rho1_ * I2' + rho2_ * I3');
-    next = next_lambda .* P1(2:end, :)';
-    incdI2 = ((previous + next)/2 * dt)';
+previous_lambda = contact_matrix_ ...
+    * (I1' + rho1_ * I2' + rho2_ * I3');
+previous = previous_lambda .* P1(1:end-1, :)';
+next_lambda = contact_matrix_ ...
+    * (I1' + rho1_ * I2' + rho2_ * I3');
+next = next_lambda .* P1(2:end, :)';
+incdI2 = ((previous + next)/2 * dt)';
 
 figure('pos', [10 10 1600 900]);
 plot(time_stamp(2:end), sum(incdI1 + incdI2, 2) * 1e5, 'linewidth', 2)
@@ -43,4 +43,3 @@ xlim([0 10])
 ylims = get(gca, 'Ylim');
 ylims(1) = 0;
 set(gca, 'Ylim', ylims, 'FontSize', 20)
-     
