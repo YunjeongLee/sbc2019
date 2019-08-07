@@ -67,7 +67,9 @@ params = {'contact_matrix', contact_matrix_val; ...
 time_stamp = 0:50*365;
 year6_vaccine = [0.1, 0.7, 0.7];
 year11_vaccine = [0.1, 0.1, 0.7];
-incd_aggregate = zeros(length(time_stamp)-1, length(year6_vaccine));
+incd_aggregate_baby = zeros(length(time_stamp), length(year6_vaccine));
+incd_aggregate_children = zeros(length(time_stamp), length(year6_vaccine));
+incd_aggregate_adult = zeros(length(time_stamp), length(year6_vaccine));
 for i = 1:length(year6_vaccine)
     % Copy vaccine proportion
     p_val_temp = p_val;
@@ -95,7 +97,9 @@ for i = 1:length(year6_vaccine)
     [~, sol] = ode45(fode, time_stamp, y0, options);
     
     incd = get_incidence(sol, params_temp, time_stamp);
-    incd_aggregate(:,i) = sum(incd(:, 1:3), 2);
+    incd_aggregate_baby(:,i) = sum(incd(:, 1:4), 2);
+    incd_aggregate_children(:,i) = sum(incd(:, 11:15), 2);
+    incd_aggregate_adult(:,i) = sum(incd(:, 21:end), 2);
 end
 
 %% Visualization
