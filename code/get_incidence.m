@@ -8,6 +8,7 @@ end
 
 %% Divide into compartments
 S = sol(:, 1:num_grps_);
+P1 = sol(:, num_grps_+1:2*num_grps_);
 I1 = sol(:, 5*num_grps_+1:6*num_grps_);
 I2 = sol(:, 6*num_grps_+1:7*num_grps_);
 I3 = sol(:, 7*num_grps_+1:8*num_grps_);
