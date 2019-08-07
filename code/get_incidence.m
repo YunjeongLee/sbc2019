@@ -1,4 +1,4 @@
-function incd = get_incidence(sol, params)
+function incd = get_incidence(sol, params, time_stamp)
 %% Assign Parameter
 names = params(:,1);
 for k = 1:size(params,1)
