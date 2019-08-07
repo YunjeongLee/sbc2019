@@ -23,7 +23,6 @@ tau_val = 1/2;
 tauP_val = 1/2;
 sigma0_val = 1/100;
 VE = 0.9;
-% p_val = [0; 0.95 * ones(3, 1); 0; 0.85; zeros(4, 1); 0.95; zeros(19, 1)];
 p_val = [0.95 * ones(3, 1); 0.85; 0.95];
 mu_val = [zeros(num_grps_val-1, 1); 1];
 rho1_val = 0.5;
