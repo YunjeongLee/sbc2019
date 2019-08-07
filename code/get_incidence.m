@@ -1,4 +1,4 @@
-function incd = get_incidence(sol)
+function incd = get_incidence(sol, params)
 
 %% Divide into compartments
 S = sol(:, 1:num_grps_);
