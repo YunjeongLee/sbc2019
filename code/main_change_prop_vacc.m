@@ -116,3 +116,24 @@ visualize(incd_aggregate_children, time_stamp, group_for_title_children, text_fo
 ylims = [0, 300];
 visualize(incd_aggregate_adult, time_stamp, group_for_title_adult, text_for_legend, xlims, ylims)
 
+%%
+num_grps_ = num_grps_val;
+S = sol(:, 1:num_grps_);
+P1 = sol(:, num_grps_+1:2*num_grps_);
+P2 = sol(:, 2*num_grps_+1:3*num_grps_);
+P3 = sol(:, 3*num_grps_+1:4*num_grps_);
+C = sol(:, 4*num_grps_+1:5*num_grps_);
+I1 = sol(:, 5*num_grps_+1:6*num_grps_);
+I2 = sol(:, 6*num_grps_+1:7*num_grps_);
+I3 = sol(:, 7*num_grps_+1:8*num_grps_);
+R = sol(:, 8*num_grps_+1:9*num_grps_);
+
+figure; yyaxis left; plot(time_stamp/365, sum(P1(:,1:4), 2)*1e6); hold on;
+yyaxis right; plot(time_stamp/365, sum(I1(:,1:4), 2)*1e6); xlim(xlims); hold off;
+title('0-1 year'); legend('P1', 'I1'); grid minor;
+figure; yyaxis left; plot(time_stamp/365, sum(P1(:,11:15),2)*1e6); hold on;
+yyaxis right; plot(time_stamp/365, sum(I1(:,11:15), 2)*1e6); hold off; title('6-11 years');
+xlim(xlims); legend('P2', 'I2'); grid minor;
+figure; yyaxis left; plot(time_stamp/365, sum(P1(:,21:end),2)*1e6);
+hold on; yyaxis right; plot(time_stamp/365, sum(I1(:,21:end), 2)*1e6); hold off;
+title('20+ years');xlim(xlims);legend('P3', 'I3'); grid minor;
