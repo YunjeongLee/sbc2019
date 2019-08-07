@@ -4,6 +4,7 @@ clear; close all; clc;
 age_grps = [0, 2/12, 4/12, 6/12, 1, 18/12, 2:14, 15:5:50, 55, 65];
 vaccine_age = [2/12, 4/12, 6/12, 18/12, 6];
 num_grps_val = length(age_grps);
+pop_age = diff([age_grps, 75]')/75;
 
 % Initial condition
 S0_val = 0.99 * pop_age;
