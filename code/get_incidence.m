@@ -1,4 +1,10 @@
 function incd = get_incidence(sol, params)
+%% Assign Parameter
+names = params(:,1);
+for k = 1:size(params,1)
+    cmd_string = sprintf('%s_ = params{%d, 2};', names{k}, k);
+    eval(cmd_string);
+end
 
 %% Divide into compartments
 S = sol(:, 1:num_grps_);
