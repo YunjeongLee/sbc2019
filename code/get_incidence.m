@@ -16,22 +16,22 @@ I3 = sol(:, 7*num_grps_+1:8*num_grps_);
 dt = time_stamp(2) - time_stamp(1);
 
 %% Incidence for I1
-previous_lambda = contact_matrix_ ...
-    * (I1(1:end-1, :)' + rho1_ * I2(1:end-1, :)' + rho2_ * I3(1:end-1, :)');
-previous = previous_lambda .* S(1:end-1, :)';
-next_lambda = contact_matrix_ ...
-    * (I1(2:end, :)' + rho1_ * I2(2:end, :)' + rho2_ * I3(2:end, :)');
-next = next_lambda .* S(2:end, :)';
-incdI1 = ((previous + next)/2 * dt)';
+% previous_lambda = contact_matrix_ ...
+%     * (I1(1:end-1, :)' + rho1_ * I2(1:end-1, :)' + rho2_ * I3(1:end-1, :)');
+% previous = previous_lambda .* S(1:end-1, :)';
+% next_lambda = contact_matrix_ ...
+%     * (I1(2:end, :)' + rho1_ * I2(2:end, :)' + rho2_ * I3(2:end, :)');
+% next = next_lambda .* S(2:end, :)';
+% incdI1 = ((previous + next)/2 * dt)';
 
 %% Incidence for I2
-previous_lambda = contact_matrix_ ...
-    * (I1(1:end-1, :)' + rho1_ * I2(1:end-1, :)' + rho2_ * I3(1:end-1, :)');
-previous = previous_lambda .* P1(1:end-1, :)';
-next_lambda = contact_matrix_ ...
-    * (I1(2:end, :)' + rho1_ * I2(2:end, :)' + rho2_ * I3(2:end, :)');
-next = next_lambda .* P1(2:end, :)';
-incdI2 = ((previous + next)/2 * dt)';
+% previous_lambda = contact_matrix_ ...
+%     * (I1(1:end-1, :)' + rho1_ * I2(1:end-1, :)' + rho2_ * I3(1:end-1, :)');
+% previous = previous_lambda .* P1(1:end-1, :)';
+% next_lambda = contact_matrix_ ...
+%     * (I1(2:end, :)' + rho1_ * I2(2:end, :)' + rho2_ * I3(2:end, :)');
+% next = next_lambda .* P1(2:end, :)';
+% incdI2 = ((previous + next)/2 * dt)';
 
 %% Merge two incidences
 incd = incdI1 + incdI2;
