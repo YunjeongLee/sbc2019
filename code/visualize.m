@@ -8,3 +8,4 @@ ylabel(sprintf( ...
     group_for_label))
 legend(text_for_legend)
 ylim(ylims)
+set(gca, 'fontsize', 20);
