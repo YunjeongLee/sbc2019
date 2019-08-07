@@ -38,6 +38,11 @@ next = next_lambda .* P1(2:end, :)';
 incdI2 = ((previous + next)/2 * dt)';
 % incdI2 = contact_matrix_ * (I1' + rho1_ * I2' + rho2_ * I3') .* P1';
 
+figure('pos', [10 10 1600 900]);
+plot(time_stamp(2:end)/365, sum(incdI1 + incdI2, 2) * 1e6, 'linewidth', 2)
+xlabel('time (years)')
+ylabel('Incidence (cases/year per 1,000,000 population)')
+ylim([0 500])
 
 figure('pos', [10 10 1600 900]);
 plot(time_stamp(2:end)/365, (incdI1 + incdI2) * 1e6, 'linewidth', 2)
