@@ -28,8 +28,8 @@ mu_val = [zeros(num_grps_val-1, 1); 1];
 rho1_val = 0.5;
 rho2_val = 0.25;
 gamma_val = 365/21;
-c_val = (diff(age_grps))';
 B_val = N * mu_val;
+c_val = 1./(diff(age_grps))';
 
 %% Generate vaccine vector
 vacc_val = zeros(num_grps_val, 1);
