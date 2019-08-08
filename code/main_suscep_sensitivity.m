@@ -105,7 +105,6 @@ for l = 1:length(suscep_params)
     end
     
     %% Visualization
-    group_for_title_baby = '0-1 year';
     text_for_legend = {'6 years: 10%, 11 years: 10%', '6 years: 70%, 11 years: 10%', ...
         '6 years: 70%, 11 years: 70%'};
     xlims = [5*365+1, 25*365]/365;
@@ -116,8 +115,8 @@ for l = 1:length(suscep_params)
     xlabel('time (years)')
     ylabel('Incidence (cases/year per 1,000,000 population)')
     legend(text_for_legend)
-    title(group_for_ttl)
     xlim(xlims)
+    title(sprintf('p = %.2f', suscep))
     ylim(ylims)
     set(gca, 'fontsize', 20);
 end
