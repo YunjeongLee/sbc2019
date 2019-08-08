@@ -107,8 +107,10 @@ end
 mkdir('results/change_vacc_prop');
 group_for_title_baby = '0-2 months babies';
 group_for_title_all = 'All age groups';
-text_for_legend = {'6 years: 10%, 11 years: 10%', '6 years: 70%, 11 years: 10%', ...
-    '6 years: 70%, 11 years: 70%'};
+text_for_legend = {};
+for i = 1:length(year6_vaccine)
+    text_for_legend{end+1} = sprintf('6 years: %d%%, 11 years: %d%%', year6_vaccine(i), year11_vaccine(i));
+end
 xlims = [10*365+1, time_stamp(end)]/365;
 ylims = [0, 2];
 visualize(incd_aggregate_baby, time_stamp, group_for_title_baby, text_for_legend, xlims, ylims)
@@ -130,8 +132,8 @@ subplot(121)
 bar(reduced_ratio_baby(2:end)*100);
 ylabel('reduced level (%)')
 yticks(0:5:30);
-x_labels = {sprintf('  6 years:  70%% \n 11 years: 10%%'), ...
-    sprintf('  6 years:  70%% \n 11 years: 70%%')};
+x_labels = {sprintf('  6 years:  %d%% \n 11 years: %d%%', year6_vaccine(2)*100, year11_vaccine(2)*100), ...
+    sprintf('  6 years:  %d%% \n 11 years: %d%%', year6_vaccine(3)*100, year11_vaccine(3)*100)};
 title('0-2 months babies')
 set(gca, 'fontsize', 20);
 set(gca,'XTickLabel', {'','',''});
