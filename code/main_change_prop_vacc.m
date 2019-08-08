@@ -108,7 +108,7 @@ group_for_title_children = '6-11 year';
 group_for_title_adult = '20+ year';
 text_for_legend = {'6 years: 10%, 11 years: 10%', '6 years: 70%, 11 years: 10%', ...
     '6 years: 70%, 11 years: 70%'};
-xlims = [9*365+1, 29*365]/365;
+xlims = [5*365+1, 25*365]/365;
 ylims = [0, 10];
 visualize(incd_aggregate_baby, time_stamp, group_for_title_baby, text_for_legend, xlims, ylims)
 ylims = [0, 200];
