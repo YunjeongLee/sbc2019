@@ -105,11 +105,12 @@ lgd = {};
 for i = 1:length(frac_immune_mother_range)
     lgd{end+1} = sprintf('prop: %d%%', frac_immune_mother_range(i) * 100);
 end
-xlims = [10*365+1, time_stamp(end)]/365;
-ylims = [0, 15];
+% xlims = [10*365+1, time_stamp(end)]/365;
+xlims = [time_stamp(1), time_stamp(end)]/365;
+ylims = [0, 1];
 visualize(incd_aggregate_baby, time_stamp, ttl_baby, lgd, xlims, ylims)
 saveas(gca, 'results/maternal_immune/incd_below2months.png', 'png');
-ylims = [0, 500];
+ylims = [0, 50];
 visualize(incd_aggregate_all, time_stamp, ttl_all, lgd, xlims, ylims)
 saveas(gca, 'results/maternal_immune/incd_all', 'png');
 
