@@ -97,16 +97,15 @@ for i = 1:length(frac_immune_mother_range)
 end
 
 %% Visualize
-ttl = 'Maternal immunity';
-lgd = {sprintf('R_M = %d%%', frac_immune_mother_range(1)*100), ...
-    sprintf('R_M = %d%%', frac_immune_mother_range(2)*100), ...
-    sprintf('R_M = %d%%', frac_immune_mother_range(3)*100)};
-xlims = [5*365+1, 25*365];
-ylims = [0, 10];
-visualize(incd_aggregate_baby, time_stamp, ttl, lgd, xlims, ylims)
-ylims = [0, 200];
-visualize(incd_aggregate_children, time_stamp, ttl, lgd, xlims, ylims)
-ylims = [0, 300];
-visualize(incd_aggregate_adult, time_stamp, ttl, lgd, xlims, ylims)
-
-
+ttl_baby = '0-1 year';
+ttl_children = '6-11 year';
+ttl_adult = '20+ year';
+lgd = {};
+for i = 1:length(frac_immune_mother_range)
+    lgd{end+1} = sprintf('R_M = %d%%', frac_immune_mother_range(i) * 100);
+end
+xlims = [5*365+1, 25*365]/365;
+ylims = [0, 250];
+visualize(incd_aggregate_baby, time_stamp, ttl_baby, lgd, xlims, ylims)
+visualize(incd_aggregate_children, time_stamp, ttl_children, lgd, xlims, ylims)
+visualize(incd_aggregate_adult, time_stamp, ttl_adult, lgd, xlims, ylims)
