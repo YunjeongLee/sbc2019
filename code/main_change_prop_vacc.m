@@ -68,8 +68,8 @@ params = {'contact_matrix', contact_matrix_val; ...
 
 %% Change 6 years old and 11 years old vaccination proportion
 time_stamp = 0:50*365;
-year6_vaccine = [0.1, 0.7, 0.7];
-year11_vaccine = [0.1, 0.1, 0.7];
+year6_vaccine = [0.1, 0.9, 0.9];
+year11_vaccine = [0.1, 0.1, 0.4];
 incd_aggregate_baby = zeros(length(time_stamp), length(year6_vaccine));
 incd_aggregate_all = zeros(length(time_stamp), length(year6_vaccine));
 for i = 1:length(year6_vaccine)
