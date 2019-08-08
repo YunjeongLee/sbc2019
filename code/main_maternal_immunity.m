@@ -98,6 +98,7 @@ for i = 1:length(frac_immune_mother_range)
 end
 
 %% Visualize
+mkdir('results/maternal_immune')
 ttl_baby = '0-2 months';
 lgd = {};
 for i = 1:length(frac_immune_mother_range)
