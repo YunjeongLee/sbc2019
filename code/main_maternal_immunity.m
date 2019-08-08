@@ -126,7 +126,7 @@ bar(reduced_ratio_baby*100);
 ylabel('reduced level (%)')
 x_labels = lgd;
 title('0-2 months babies')
-set(gca, 'fontsize', 20);
+set(gca, 'fontsize', 18);
 set(gca,'XTickLabel', {'','','',''});
 format_ticks(gca, x_labels);
 
@@ -135,7 +135,7 @@ bar(reduced_ratio_all*100);
 ylabel('reduced level (%)')
 x_labels = lgd;
 title('All age groups')
-set(gca, 'fontsize', 20);
+set(gca, 'fontsize', 18);
 set(gca,'XTickLabel', {'','','', ''});
 format_ticks(gca, x_labels);
 
