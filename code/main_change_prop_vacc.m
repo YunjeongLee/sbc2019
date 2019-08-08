@@ -132,7 +132,7 @@ yticks(1:15);
 x_labels = {sprintf('  6 years:  70%% \n 11 years: 10%%'), ...
     sprintf('  6 years:  70%% \n 11 years: 70%%')};
 title('0-2 months babies')
-set(gca, 'fontsize', 15);
+set(gca, 'fontsize', 20);
 set(gca,'XTickLabel', {'','',''});
 format_ticks(gca, x_labels);
 ylim([0 15])
@@ -144,7 +144,7 @@ yticks(1:15);
 x_labels = {sprintf('  6 years:  70%% \n 11 years: 10%%'), ...
     sprintf('  6 years:  70%% \n 11 years: 70%%')};
 title('All age groups')
-set(gca, 'fontsize', 15);
+set(gca, 'fontsize', 20);
 set(gca,'XTickLabel', {'','',''});
 format_ticks(gca, x_labels);
 ylim([0 15])
