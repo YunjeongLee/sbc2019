@@ -30,7 +30,7 @@ c_val = 1./(diff(age_grps))';
 B_val = 1/75/365;
 
 %% Parameters w.r.t. vaccine
-VE = 0.9;
+VE = 1;
 p_val = [0.95 * ones(3, 1); 0.85; 0.1; 0.1];
 vaccine_age = [2/12, 4/12, 6/12, 18/12, 6, 11]*365;
 
