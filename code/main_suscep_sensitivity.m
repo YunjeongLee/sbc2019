@@ -107,7 +107,7 @@ for l = 1:length(suscep_params)
     %% Visualization
     text_for_legend = {'6 years: 10%, 11 years: 10%', '6 years: 70%, 11 years: 10%', ...
         '6 years: 70%, 11 years: 70%'};
-    ylims = [0, 10];
+    ylims = [0, 3];
     subplot(2,3,l);
     plot(time_stamp(1:end)/365, incd * 1e6, 'linewidth', 2)
     grid on; grid minor;
