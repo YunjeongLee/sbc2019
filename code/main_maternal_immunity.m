@@ -91,9 +91,9 @@ for i = 1:length(frac_immune_mother_range)
 
     % Get incidence
     incd = get_incidence(sol, params_temp, time_stamp);
-    incd_aggregate_baby(:,i) = sum(incd(:, 1:4), 2);
+    incd_aggregate_baby(:,i) = sum(incd(:, [1:4, end]), 2);
     incd_aggregate_children(:,i) = sum(incd(:, 11:15), 2);
-    incd_aggregate_adult(:,i) = sum(incd(:, 21:end), 2);
+    incd_aggregate_adult(:,i) = sum(incd(:, 21:end-1), 2);
 end
 
 %% Visualize
