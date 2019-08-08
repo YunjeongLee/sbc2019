@@ -112,7 +112,7 @@ for l = 1:length(suscep_params)
     plot(time_stamp(1:end)/365, incd_aggregate_baby * 1e6, 'linewidth', 2)
     grid on; grid minor;
     xlabel('time (years)')
-    ylabel('Incidence (cases/year per 1,000,000 population)')
+    ylabel('Incidence')
     legend(text_for_legend)
     title(sprintf('p = %.2f', suscep))
     ylim(ylims)
