@@ -92,7 +92,7 @@ for i = 1:length(frac_immune_mother_range)
     [~, sol] = ode45(fode, time_stamp, y0, options);
 
     % Get incidence
-    incd = get_incidence(sol, params_temp);
+    [incd, ~] = get_incidence(sol, params_temp);
     incd_aggregate_baby(:,i) = sum(incd(:, 1), 2);
     incd_aggregate_all(:,i) = sum(incd, 2);
 end
