@@ -118,8 +118,9 @@ visualize(incd_aggregate_all, time_stamp, group_for_title_all, text_for_legend, 
 saveas(gca, 'results/change_vacc_prop/incd_all.png', 'png');
 
 %% Draw reduced proportion as bar graph
-total_incd_baby = sum(incd_aggregate_baby);
-total_incd_all = sum(incd_aggregate_all);
+wts_period = 10*365+1:time_stamp(end);
+total_incd_baby = sum(incd_aggregate_baby(wts_period, :));
+total_incd_all = sum(incd_aggregate_all(wts_period, :));
 
 reduced_ratio_baby = 1 - total_incd_baby./max(total_incd_baby);
 reduced_ratio_all = 1 - total_incd_all./max(total_incd_all);
