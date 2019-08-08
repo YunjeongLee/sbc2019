@@ -105,7 +105,8 @@ lgd = {};
 for i = 1:length(frac_immune_mother_range)
     lgd{end+1} = sprintf('R_M = %d%%', frac_immune_mother_range(i) * 100);
 end
-xlims = [5*365+1, 25*365]/365;
-ylims = [0, 250];
+xlims = [time_stamp(1), time_stamp(end)]/365;
+ylims = [0, 15];
 visualize(incd_aggregate_baby, time_stamp, ttl_baby, lgd, xlims, ylims)
+ylims = [0, 500];
 
