@@ -118,8 +118,8 @@ wts_period = 10*365+1:time_stamp(end);
 total_incd_baby = sum(incd_aggregate_baby(wts_period, :));
 total_incd_all = sum(incd_aggregate_all(wts_period, :));
 
-reduced_ratio_baby = 1 - total_incd_baby./max(total_incd_baby);
-reduced_ratio_all = 1 - total_incd_all./max(total_incd_all);
+reduced_ratio_baby = 1 - total_incd_baby./(total_incd_baby(1));
+reduced_ratio_all = 1 - total_incd_all./(total_incd_all(1));
 
 figure('pos', [10 10 1600 700]);
 subplot(121)
