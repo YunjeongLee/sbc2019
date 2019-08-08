@@ -129,9 +129,8 @@ subplot(121)
 bar(reduced_ratio_baby(2:end)*100);
 ylabel('reduced level (%)')
 yticks(1:15);
-x_labels = {sprintf('6 years: 10%% \n 11 years: 10%%'), ...
-    sprintf('6 years: 70%% \n 11 years: 10%%'), ...
-    sprintf('6 years: 70%% \n 11 years: 70%%')};
+x_labels = {sprintf('  6 years:  70%% \n 11 years: 10%%'), ...
+    sprintf('  6 years:  70%% \n 11 years: 70%%')};
 title('0-2 months babies')
 set(gca, 'fontsize', 15);
 set(gca,'XTickLabel', {'','',''});
@@ -141,10 +140,9 @@ ylim([0 15])
 subplot(122)
 bar(reduced_ratio_all(2:end)*100);
 ylabel('reduced level (%)')
-x_labels = {sprintf('6 years: 10%% \n 11 years: 10%%'), ...
-    sprintf('6 years: 70%% \n 11 years: 10%%'), ...
-    sprintf('6 years: 70%% \n 11 years: 70%%')};
 yticks(1:15);
+x_labels = {sprintf('  6 years:  70%% \n 11 years: 10%%'), ...
+    sprintf('  6 years:  70%% \n 11 years: 70%%')};
 title('All age groups')
 set(gca, 'fontsize', 15);
 set(gca,'XTickLabel', {'','',''});
