@@ -70,6 +70,7 @@ year6_vaccine = [0.1, 0.7, 0.7];
 year11_vaccine = [0.1, 0.1, 0.7];
 suscep_params = 0.5:0.1:1;
 for l = 1:length(suscep_params)
+    suscep = suscep_params(l);
 incd_aggregate_baby = zeros(length(time_stamp), length(year6_vaccine));
 incd_aggregate_children = zeros(length(time_stamp), length(year6_vaccine));
 incd_aggregate_adult = zeros(length(time_stamp), length(year6_vaccine));
@@ -92,6 +93,7 @@ for i = 1:length(year6_vaccine)
     
     % Update params
     params_temp = params;
+    params_temp{end-2,2} = suscep;
     params_temp{end-1,2} = vacc_val;
 
     % Solve ODE
