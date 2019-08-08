@@ -78,8 +78,8 @@ for l = 1:length(suscep_params)
         p_val_temp = p_val;
         
         % Update vaccine proportion
-        p_val_temp(end-2) = year6_vaccine(i);
-        p_val_temp(end-1) = year11_vaccine(i);
+        p_val_temp(end-1) = year6_vaccine(i);
+        p_val_temp(end) = year11_vaccine(i);
         
         % Vaccine update
         vacc_val = zeros(num_grps_val, 1);
