@@ -78,7 +78,7 @@ incd_aggregate_adult = zeros(length(time_stamp), length(frac_immune_mother_range
 for i = 1:length(frac_immune_mother_range)
     % Assign fractions of immuned mothers
     frac_immune_mother = frac_immune_mother_range(i);
-    f_A_val = sigma_val * tauA * frac_immune_mother;
+    f_A_val = sigma_val * 1/tauA * frac_immune_mother;
     
     % Update params
     params_temp = params;
