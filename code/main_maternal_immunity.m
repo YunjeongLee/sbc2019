@@ -36,3 +36,12 @@ f_A_val = 0.12;
 VE = 0.9;
 p_val = [0.95 * ones(3, 1); 0.85; 0.1; 0.1];
 vaccine_age = [2/12, 4/12, 6/12, 18/12, 6, 11]*365;
+
+%% Generate vaccine vector
+vacc_val = zeros(num_grps_val, 1);
+for i = 1:num_grps_val
+    f = p_val * VE;
+    for j = 1:length(vaccine_age)
+        vacc_val(i) = vacc_val(i) + f(j) * kDelta(age_grps(i), vaccine_age(j));
+    end
+end
