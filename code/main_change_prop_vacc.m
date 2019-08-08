@@ -105,8 +105,8 @@ end
 
 %% Visualization
 mkdir('results/change_vacc_prop');
-group_for_title_baby = '0-1 year';
-group_for_title_all = '20+ year';
+group_for_title_baby = '0-2 months babies';
+group_for_title_all = 'All age groups';
 text_for_legend = {'6 years: 10%, 11 years: 10%', '6 years: 70%, 11 years: 10%', ...
     '6 years: 70%, 11 years: 70%'};
 xlims = [time_stamp(1), time_stamp(end)]/365;
