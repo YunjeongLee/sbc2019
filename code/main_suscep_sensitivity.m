@@ -109,7 +109,7 @@ for l = 1:length(suscep_params)
         '6 years: 70%, 11 years: 70%'};
     ylims = [0, 3];
     subplot(2,3,l);
-    plot(time_stamp(1:end)/365, incd * 1e6, 'linewidth', 2)
+    plot(time_stamp(1:end)/365, incd_aggregate_baby * 1e6, 'linewidth', 2)
     grid on; grid minor;
     xlabel('time (years)')
     ylabel('Incidence (cases/year per 1,000,000 population)')
