@@ -109,9 +109,14 @@ for l = 1:length(suscep_params)
         '6 years: 70%, 11 years: 70%'};
     xlims = [5*365+1, 25*365]/365;
     ylims = [0, 10];
-    visualize(incd_aggregate_baby, time_stamp, group_for_title_baby, text_for_legend, xlims, ylims)
-    ylims = [0, 200];
-    visualize(incd_aggregate_children, time_stamp, group_for_title_children, text_for_legend, xlims, ylims)
-    ylims = [0, 300];
-    visualize(incd_aggregate_adult, time_stamp, group_for_title_adult, text_for_legend, xlims, ylims)
+    subplot(2,3,l);
+    plot(time_stamp(1:end)/365, incd * 1e6, 'linewidth', 2)
+    grid on; grid minor;
+    xlabel('time (years)')
+    ylabel('Incidence (cases/year per 1,000,000 population)')
+    legend(text_for_legend)
+    title(group_for_ttl)
+    xlim(xlims)
+    ylim(ylims)
+    set(gca, 'fontsize', 20);
 end
