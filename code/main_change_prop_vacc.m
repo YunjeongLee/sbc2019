@@ -117,4 +117,36 @@ ylims = [0, 300];
 visualize(incd_aggregate_all, time_stamp, group_for_title_all, text_for_legend, xlims, ylims)
 saveas(gca, 'results/change_vacc_prop/incd_all.png', 'png');
 
+%% Draw reduced proportion as bar graph
+total_incd_baby = sum(incd_aggregate_baby);
+total_incd_all = sum(incd_aggregate_adult);
 
+reduced_ratio_baby = 1 - total_incd_baby./max(total_incd_baby);
+reduced_ratio_all = 1 - total_incd_all./max(total_incd_all);
+
+figure('pos', [10 10 1600 700]);
+subplot(121)
+bar(reduced_ratio_baby(2:end)*100);
+ylabel('reduced level (%)')
+yticks(1:10);
+x_labels = {sprintf('6 years: 10%% \n 11 years: 10%%'), ...
+    sprintf('6 years: 70%% \n 11 years: 10%%'), ...
+    sprintf('6 years: 70%% \n 11 years: 70%%')};
+title('0-2 months babies')
+set(gca, 'fontsize', 15);
+set(gca,'XTickLabel', {'','',''});
+format_ticks(gca, x_labels);
+ylim([0 10])
+
+subplot(122)
+bar(reduced_ratio_all(2:end)*100);
+ylabel('reduced level (%)')
+yticks(1:10);
+x_labels = {sprintf('6 years: 10%% \n 11 years: 10%%'), ...
+    sprintf('6 years: 70%% \n 11 years: 10%%'), ...
+    sprintf('6 years: 70%% \n 11 years: 70%%')};
+title('All age groups')
+set(gca, 'fontsize', 15);
+set(gca,'XTickLabel', {'','',''});
+format_ticks(gca, x_labels);
+ylim([0 10])
