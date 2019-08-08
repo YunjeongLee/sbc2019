@@ -136,7 +136,7 @@ title('0-2 months babies')
 set(gca, 'fontsize', 15);
 set(gca,'XTickLabel', {'','',''});
 format_ticks(gca, x_labels);
-ylim([0 10])
+ylim([0 15])
 
 subplot(122)
 bar(reduced_ratio_all(2:end)*100);
