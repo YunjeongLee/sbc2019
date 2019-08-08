@@ -149,4 +149,4 @@ title('All age groups')
 set(gca, 'fontsize', 15);
 set(gca,'XTickLabel', {'','',''});
 format_ticks(gca, x_labels);
-ylim([0 10])
+ylim([0 15])
