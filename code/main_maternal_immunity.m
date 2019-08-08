@@ -103,7 +103,7 @@ ttl_baby = '0-2 months';
 ttl_all = 'All age groups';
 lgd = {};
 for i = 1:length(frac_immune_mother_range)
-    lgd{end+1} = sprintf('R_M = %d%%', frac_immune_mother_range(i) * 100);
+    lgd{end+1} = sprintf('prop: %d%%', frac_immune_mother_range(i) * 100);
 end
 xlims = [time_stamp(1), time_stamp(end)]/365;
 ylims = [0, 15];
