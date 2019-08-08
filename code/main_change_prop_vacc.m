@@ -128,7 +128,7 @@ figure('pos', [10 10 1600 700]);
 subplot(121)
 bar(reduced_ratio_baby(2:end)*100);
 ylabel('reduced level (%)')
-yticks(1:10);
+yticks(1:15);
 x_labels = {sprintf('6 years: 10%% \n 11 years: 10%%'), ...
     sprintf('6 years: 70%% \n 11 years: 10%%'), ...
     sprintf('6 years: 70%% \n 11 years: 70%%')};
@@ -141,10 +141,10 @@ ylim([0 10])
 subplot(122)
 bar(reduced_ratio_all(2:end)*100);
 ylabel('reduced level (%)')
-yticks(1:10);
 x_labels = {sprintf('6 years: 10%% \n 11 years: 10%%'), ...
     sprintf('6 years: 70%% \n 11 years: 10%%'), ...
     sprintf('6 years: 70%% \n 11 years: 70%%')};
+yticks(1:15);
 title('All age groups')
 set(gca, 'fontsize', 15);
 set(gca,'XTickLabel', {'','',''});
