@@ -18,9 +18,6 @@ if ~exist('f_A_', 'var')
     incdI1 = (contact_matrix_ * (I1' + rho1_ * I2' + rho2_ * I3') .* S')';
     
     %% Incidence for I2
-    
-    %% Merge two incidences
-    incd = incdI1' + incdI2';
     incdI2 = (contact_matrix_ * (I1' + rho1_ * I2' + rho2_ * I3') .* P1')';
     
 else
@@ -35,8 +32,6 @@ else
     incdI1 = (contact_matrix_ * (I1' + rho1_ * I2' + rho2_ * I3') .* S')';
     
     %% Incidence for I2
-    %% Merge two incidences
-    incd = incdI1' + incdI2';
     incdI2 = (contact_matrix_ * (I1' + rho1_ * I2' + rho2_ * I3') ...
         .* [P1(:, 1) + X0, P1(:, 2:end)]')';
     
