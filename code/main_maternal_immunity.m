@@ -76,8 +76,7 @@ time_stamp = 0:50*365;
 tauA = 2.5/365; % unit: days
 frac_immune_mother_range = [0, 0.65, 0.8, 0.99];
 incd_aggregate_baby = zeros(length(time_stamp), length(frac_immune_mother_range));
-incd_aggregate_children = zeros(length(time_stamp), length(frac_immune_mother_range));
-incd_aggregate_adult = zeros(length(time_stamp), length(frac_immune_mother_range));
+incd_aggregate_all = zeros(length(time_stamp), length(frac_immune_mother_range));
 for i = 1:length(frac_immune_mother_range)
     % Assign fractions of immuned mothers
     frac_immune_mother = frac_immune_mother_range(i);
@@ -95,8 +94,7 @@ for i = 1:length(frac_immune_mother_range)
     % Get incidence
     incd = get_incidence(sol, params_temp, time_stamp);
     incd_aggregate_baby(:,i) = sum(incd(:, [1, end]), 2);
-    incd_aggregate_children(:,i) = sum(incd(:, 11:15), 2);
-    incd_aggregate_adult(:,i) = sum(incd(:, 21:end-1), 2);
+    incd_aggregate_all(:,i) = sum(incd, 2);
 end
 
 %% Visualize
