@@ -7,6 +7,7 @@ for k = 1:size(params,1)
 end
 
 %% Divide into compartments
+if ~exist('f_A_', 'var')
 S = sol(:, 1:num_grps_);
 P1 = sol(:, num_grps_+1:2*num_grps_);
 I1 = sol(:, 5*num_grps_+1:6*num_grps_);
@@ -22,4 +23,6 @@ incdI2 = contact_matrix_ * (I1' + rho1_ * I2' + rho2_ * I3') .* P1';
 %% Merge two incidences
 incd = incdI1' + incdI2';
 
+else
+end
 end
