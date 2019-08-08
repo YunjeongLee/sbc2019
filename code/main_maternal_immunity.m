@@ -67,3 +67,31 @@ params = {'contact_matrix', contact_matrix_val; ...
           'f_A', f_A_val; ...
           'vacc', vacc_val; ...
           'num_grps', num_grps_val};
+
+%% Change maternal immunity values
+time_stamp = 0:50*365;
+tauA = 2.5/365; % unit: days
+frac_immune_mother_range = [0.6, 0.8, 0.99];
+incd_aggregate_baby = zeros(length(time_stamp), length(frac_immune_mother_range));
+incd_aggregate_children = zeros(length(time_stamp), length(frac_immune_mother_range));
+incd_aggregate_adult = zeros(length(time_stamp), length(frac_immune_mother_range));
+for i = 1:length(frac_immune_mother_range)
+    % Assign fractions of immuned mothers
+    frac_immune_mother = frac_immune_mother_range(i);
+    f_A_val = sigma_val * tauA * frac_immune_mother;
+    
+    % Update params
+    params_temp = params;
+    params_temp{end-2, 2} = f_A_val;
+    
+    % Solve ode
+    fode = @(t, y) model_pertussis_maternal(t, y, params_temp);
+    options = odeset('NonNegative', 1:num_grps_val*9+1);
+    [~, sol] = ode45(fode, time_stamp, y0, options);
+
+    % Get incidence
+    incd = get_incidence(sol, params_temp, time_stamp);
+    incd_aggregate_baby(:,i) = sum(incd(:, 1:4), 2);
+    incd_aggregate_children(:,i) = sum(incd(:, 11:15), 2);
+    incd_aggregate_adult(:,i) = sum(incd(:, 21:end), 2);
+end
