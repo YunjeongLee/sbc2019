@@ -50,19 +50,19 @@ contact_matrix_val = generate_contact_matrix(b, num_grps_val);
 %% Generate params
 y0 = [S0_val; P10_val; P20_val; P30_val; C0_val; I10_val; I20_val; I30_val; R0_val];
 params = {'contact_matrix', contact_matrix_val; ...
-          'sigma', sigma_val; ...
-          'sigma0', sigma0_val; ...
-          'tau', tau_val; ...
-          'tauP', tauP_val; ...
-          'mu', mu_val; ...
-          'rho1', rho1_val; ...
-          'rho2', rho2_val; ...
-          'gamma', gamma_val; ...
-          'c', c_val; ...
-          'B', B_val; ...
-          'p', 1; ...
-          'vacc', vacc_val; ...
-          'num_grps', num_grps_val};
+    'sigma', sigma_val; ...
+    'sigma0', sigma0_val; ...
+    'tau', tau_val; ...
+    'tauP', tauP_val; ...
+    'mu', mu_val; ...
+    'rho1', rho1_val; ...
+    'rho2', rho2_val; ...
+    'gamma', gamma_val; ...
+    'c', c_val; ...
+    'B', B_val; ...
+    'p', 1; ...
+    'vacc', vacc_val; ...
+    'num_grps', num_grps_val};
 
 %% Change 6 years old and 11 years old vaccination proportion
 time_stamp = 0:50*365;
@@ -71,53 +71,53 @@ year11_vaccine = [0.1, 0.1, 0.7];
 suscep_params = 0.5:0.1:1;
 for l = 1:length(suscep_params)
     suscep = suscep_params(l);
-incd_aggregate_baby = zeros(length(time_stamp), length(year6_vaccine));
-incd_aggregate_children = zeros(length(time_stamp), length(year6_vaccine));
-incd_aggregate_adult = zeros(length(time_stamp), length(year6_vaccine));
-for i = 1:length(year6_vaccine)
-    % Copy vaccine proportion
-    p_val_temp = p_val;
-    
-    % Update vaccine proportion
-    p_val_temp(end-2) = year6_vaccine(i);
-    p_val_temp(end-1) = year11_vaccine(i);
-    
-    % Vaccine update
-    vacc_val = zeros(num_grps_val, 1);
-    for k = 1:num_grps_val
-        f = p_val_temp * VE;
-        for j = 1:length(vaccine_age)
-            vacc_val(k) = vacc_val(k) + f(j) * kDelta(age_grps(k), vaccine_age(j));
+    incd_aggregate_baby = zeros(length(time_stamp), length(year6_vaccine));
+    incd_aggregate_children = zeros(length(time_stamp), length(year6_vaccine));
+    incd_aggregate_adult = zeros(length(time_stamp), length(year6_vaccine));
+    for i = 1:length(year6_vaccine)
+        % Copy vaccine proportion
+        p_val_temp = p_val;
+        
+        % Update vaccine proportion
+        p_val_temp(end-2) = year6_vaccine(i);
+        p_val_temp(end-1) = year11_vaccine(i);
+        
+        % Vaccine update
+        vacc_val = zeros(num_grps_val, 1);
+        for k = 1:num_grps_val
+            f = p_val_temp * VE;
+            for j = 1:length(vaccine_age)
+                vacc_val(k) = vacc_val(k) + f(j) * kDelta(age_grps(k), vaccine_age(j));
+            end
         end
+        
+        % Update params
+        params_temp = params;
+        params_temp{end-2,2} = suscep;
+        params_temp{end-1,2} = vacc_val;
+        
+        % Solve ODE
+        fode = @(t, y) model_pertussis(t, y, params_temp);
+        options = odeset('NonNegative', 1:num_grps_val*9);
+        [~, sol] = ode45(fode, time_stamp, y0, options);
+        
+        incd = get_incidence(sol, params_temp, time_stamp);
+        incd_aggregate_baby(:,i) = sum(incd(:, 1:4), 2);
+        incd_aggregate_children(:,i) = sum(incd(:, 11:15), 2);
+        incd_aggregate_adult(:,i) = sum(incd(:, 21:end), 2);
     end
     
-    % Update params
-    params_temp = params;
-    params_temp{end-2,2} = suscep;
-    params_temp{end-1,2} = vacc_val;
-
-    % Solve ODE
-    fode = @(t, y) model_pertussis(t, y, params_temp);
-    options = odeset('NonNegative', 1:num_grps_val*9);
-    [~, sol] = ode45(fode, time_stamp, y0, options);
-    
-    incd = get_incidence(sol, params_temp, time_stamp);
-    incd_aggregate_baby(:,i) = sum(incd(:, 1:4), 2);
-    incd_aggregate_children(:,i) = sum(incd(:, 11:15), 2);
-    incd_aggregate_adult(:,i) = sum(incd(:, 21:end), 2);
-end
-
-%% Visualization
-group_for_title_baby = '0-1 year';
-group_for_title_children = '6-11 year';
-group_for_title_adult = '20+ year';
-text_for_legend = {'6 years: 10%, 11 years: 10%', '6 years: 70%, 11 years: 10%', ...
-    '6 years: 70%, 11 years: 70%'};
-xlims = [5*365+1, 25*365]/365;
-ylims = [0, 10];
-visualize(incd_aggregate_baby, time_stamp, group_for_title_baby, text_for_legend, xlims, ylims)
-ylims = [0, 200];
-visualize(incd_aggregate_children, time_stamp, group_for_title_children, text_for_legend, xlims, ylims)
-ylims = [0, 300];
-visualize(incd_aggregate_adult, time_stamp, group_for_title_adult, text_for_legend, xlims, ylims)
+    %% Visualization
+    group_for_title_baby = '0-1 year';
+    group_for_title_children = '6-11 year';
+    group_for_title_adult = '20+ year';
+    text_for_legend = {'6 years: 10%, 11 years: 10%', '6 years: 70%, 11 years: 10%', ...
+        '6 years: 70%, 11 years: 70%'};
+    xlims = [5*365+1, 25*365]/365;
+    ylims = [0, 10];
+    visualize(incd_aggregate_baby, time_stamp, group_for_title_baby, text_for_legend, xlims, ylims)
+    ylims = [0, 200];
+    visualize(incd_aggregate_children, time_stamp, group_for_title_children, text_for_legend, xlims, ylims)
+    ylims = [0, 300];
+    visualize(incd_aggregate_adult, time_stamp, group_for_title_adult, text_for_legend, xlims, ylims)
 end
