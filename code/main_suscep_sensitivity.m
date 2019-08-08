@@ -69,6 +69,7 @@ time_stamp = 0:50*365;
 year6_vaccine = [0.1, 0.7, 0.7];
 year11_vaccine = [0.1, 0.1, 0.7];
 suscep_params = 0.5:0.1:1;
+figure('pos', [10 10 1600 900]);
 for l = 1:length(suscep_params)
     suscep = suscep_params(l);
     incd_aggregate_baby = zeros(length(time_stamp), length(year6_vaccine));
