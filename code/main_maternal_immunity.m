@@ -45,3 +45,8 @@ for i = 1:num_grps_val
         vacc_val(i) = vacc_val(i) + f(j) * kDelta(age_grps(i), vaccine_age(j));
     end
 end
+
+%% Load contact matrix
+b = [0.02, 0.12, 0.23, 0.73, 2.47, 0.95, 0.54, 0.16, 0.00];
+contact_matrix_val = generate_contact_matrix(b, num_grps_val);
+
