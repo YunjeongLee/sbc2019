@@ -118,3 +118,8 @@ for l = 1:length(suscep_params)
     ylim(ylims)
     set(gca, 'fontsize', 12);
 end
+
+%% Save figure
+mkdir('results')
+filename = 'results/suscep_sens_analysis.png';
+saveas(gca, filename, 'png');
