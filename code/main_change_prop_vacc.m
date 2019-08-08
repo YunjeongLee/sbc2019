@@ -129,7 +129,7 @@ figure('pos', [10 10 1600 700]);
 subplot(121)
 bar(reduced_ratio_baby(2:end)*100);
 ylabel('reduced level (%)')
-yticks(1:30);
+yticks(0:5:30);
 x_labels = {sprintf('  6 years:  70%% \n 11 years: 10%%'), ...
     sprintf('  6 years:  70%% \n 11 years: 70%%')};
 title('0-2 months babies')
@@ -141,7 +141,7 @@ ylim([0 30])
 subplot(122)
 bar(reduced_ratio_all(2:end)*100);
 ylabel('reduced level (%)')
-yticks(1:30);
+yticks(0:5:30);
 x_labels = {sprintf('  6 years:  70%% \n 11 years: 10%%'), ...
     sprintf('  6 years:  70%% \n 11 years: 70%%')};
 title('All age groups')
