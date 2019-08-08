@@ -110,4 +110,6 @@ ylims = [0, 15];
 visualize(incd_aggregate_baby, time_stamp, ttl_baby, lgd, xlims, ylims)
 saveas(gca, 'results/maternal_immune/incd_below2months.png', 'png');
 ylims = [0, 500];
+visualize(incd_aggregate_all, time_stamp, ttl_all, lgd, xlims, ylims)
+saveas(gca, 'results/maternal_immune/incd_all', 'png');
 
