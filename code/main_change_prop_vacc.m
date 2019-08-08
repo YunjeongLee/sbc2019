@@ -119,7 +119,7 @@ saveas(gca, 'results/change_vacc_prop/incd_all.png', 'png');
 
 %% Draw reduced proportion as bar graph
 total_incd_baby = sum(incd_aggregate_baby);
-total_incd_all = sum(incd_aggregate_adult);
+total_incd_all = sum(incd_aggregate_all);
 
 reduced_ratio_baby = 1 - total_incd_baby./max(total_incd_baby);
 reduced_ratio_all = 1 - total_incd_all./max(total_incd_all);
