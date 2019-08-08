@@ -68,6 +68,7 @@ params = {'contact_matrix', contact_matrix_val; ...
 time_stamp = 0:50*365;
 year6_vaccine = [0.1, 0.7, 0.7];
 year11_vaccine = [0.1, 0.1, 0.7];
+suscep_params = 0.5:0.1:1;
 incd_aggregate_baby = zeros(length(time_stamp), length(year6_vaccine));
 incd_aggregate_children = zeros(length(time_stamp), length(year6_vaccine));
 incd_aggregate_adult = zeros(length(time_stamp), length(year6_vaccine));
