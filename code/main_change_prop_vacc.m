@@ -112,7 +112,7 @@ text_for_legend = {'6 years: 10%, 11 years: 10%', '6 years: 70%, 11 years: 10%',
 xlims = [time_stamp(1), time_stamp(end)]/365;
 ylims = [0, 2];
 visualize(incd_aggregate_baby, time_stamp, group_for_title_baby, text_for_legend, xlims, ylims)
-saveas(gca, 'results/change_vacc_prop/incd_below1year.png', 'png');
+saveas(gca, 'results/change_vacc_prop/incd_below2months.png', 'png');
 ylims = [0, 400];
 visualize(incd_aggregate_all, time_stamp, group_for_title_all, text_for_legend, xlims, ylims)
 saveas(gca, 'results/change_vacc_prop/incd_all.png', 'png');
