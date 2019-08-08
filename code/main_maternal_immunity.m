@@ -114,8 +114,9 @@ visualize(incd_aggregate_all, time_stamp, ttl_all, lgd, xlims, ylims)
 saveas(gca, 'results/maternal_immune/incd_all', 'png');
 
 %% Visualize as bar graph
-total_incd_baby = sum(incd_aggregate_baby);
-total_incd_all = sum(incd_aggregate_all);
+wts_period = 10*365+1:time_stamp(end);
+total_incd_baby = sum(incd_aggregate_baby(wts_period, :));
+total_incd_all = sum(incd_aggregate_all(wts_period, :));
 
 reduced_ratio_baby = 1 - total_incd_baby./max(total_incd_baby);
 reduced_ratio_all = 1 - total_incd_all./max(total_incd_all);
