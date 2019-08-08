@@ -120,10 +120,4 @@ ylims = [0, 200];
 visualize(incd_aggregate_children, time_stamp, group_for_title_children, text_for_legend, xlims, ylims)
 ylims = [0, 300];
 visualize(incd_aggregate_adult, time_stamp, group_for_title_adult, text_for_legend, xlims, ylims)
-
-%% Draw as bar
-figure;
-bar(sum(incd_aggregate_baby(8*365+1:14*365, :))*1e6);
-set(gca, 'fontsize', 15);
-title('0-1 year')
 end
