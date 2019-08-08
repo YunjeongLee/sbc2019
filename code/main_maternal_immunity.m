@@ -124,19 +124,19 @@ figure('pos', [10 10 1600 700]);
 subplot(121)
 bar(reduced_ratio_baby*100);
 ylabel('reduced level (%)')
-x_labels = lgd(2:end);
+x_labels = lgd;
 title('0-2 months babies')
 set(gca, 'fontsize', 20);
-set(gca,'XTickLabel', {'','',''});
+set(gca,'XTickLabel', {'','','',''});
 format_ticks(gca, x_labels);
 
 subplot(122)
 bar(reduced_ratio_all*100);
 ylabel('reduced level (%)')
-x_labels = lgd(2:end);
+x_labels = lgd;
 title('All age groups')
 set(gca, 'fontsize', 20);
-set(gca,'XTickLabel', {'','',''});
+set(gca,'XTickLabel', {'','','', ''});
 format_ticks(gca, x_labels);
 
 saveas(gca, 'results/maternal_immune/effect_change_maternal_prop.png', 'png');
