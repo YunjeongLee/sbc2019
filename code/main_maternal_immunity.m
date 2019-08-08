@@ -16,6 +16,7 @@ I10_val = pop_age - S0_val;
 I20_val = zeros(num_grps_val, 1);
 I30_val = zeros(num_grps_val, 1);
 R0_val = zeros(num_grps_val, 1);
+X0_val = 0;
 
 % Parameters
 sigma_val = 1/14/365;
