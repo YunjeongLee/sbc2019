@@ -31,7 +31,7 @@ c_val = 1./(diff(age_grps))';
 B_val = 1/75/365;
 
 % Parameters for maternal immunity
-f_A_val = 0.12;
+f_A_val = nan;
 
 %% Parameters w.r.t. vaccine
 VE = 0.9;
