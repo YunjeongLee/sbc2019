@@ -122,23 +122,15 @@ total_incd_all = sum(incd_aggregate_all(wts_period, :));
 reduced_ratio_baby = 1 - total_incd_baby./(total_incd_baby(1));
 reduced_ratio_all = 1 - total_incd_all./(total_incd_all(1));
 
-figure('pos', [10 10 1600 700]);
-subplot(121)
-bar(reduced_ratio_baby*100);
+figure;
+bar(reduced_ratio_baby(2:end)*100);
 ylabel('reduced level (%)')
-x_labels = lgd;
+yticks(0:5:15);
+x_labels = lgd(2:end);
 title('0-2 months babies')
 set(gca, 'fontsize', 18);
-set(gca,'XTickLabel', {'','','',''});
+set(gca,'XTickLabel', {'','',''});
 format_ticks(gca, x_labels);
-
-subplot(122)
-bar(reduced_ratio_all*100);
-ylabel('reduced level (%)')
-x_labels = lgd;
-title('All age groups')
-set(gca, 'fontsize', 18);
-set(gca,'XTickLabel', {'','','', ''});
-format_ticks(gca, x_labels);
+ylim([0 15])
 
 saveas(gca, 'results/maternal_immune/effect_change_maternal_prop.png', 'png');
