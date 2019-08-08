@@ -148,3 +148,5 @@ set(gca, 'fontsize', 20);
 set(gca,'XTickLabel', {'','',''});
 format_ticks(gca, x_labels);
 ylim([0 15])
+
+saveas(gca, 'results/change_vacc_prop/effect_change_vaccine_prop.png', 'png');
