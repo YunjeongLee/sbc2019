@@ -100,6 +100,7 @@ end
 %% Visualize
 mkdir('results/maternal_immune')
 ttl_baby = '0-2 months';
+ttl_all = 'All age groups';
 lgd = {};
 for i = 1:length(frac_immune_mother_range)
     lgd{end+1} = sprintf('R_M = %d%%', frac_immune_mother_range(i) * 100);
