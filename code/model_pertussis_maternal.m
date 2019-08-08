@@ -16,7 +16,7 @@ end
 % I2 : y(6*num_grps_+1:7*num_grps_)
 % I3 : y(7*num_grps_+1:8*num_grps_)
 % R : y(8*num_grps_+1:9*num_grps_)
-dydt = zeros(9 * num_grps_, 1);
+dydt = zeros(9 * num_grps_ + 1, 1);
 
 Lambda = contact_matrix_ * (y(5*num_grps_+1:6*num_grps_) ...
     + rho1_ * y(6*num_grps_+1:7*num_grps_) + rho2_ * y(7*num_grps_+1:8*num_grps_));
