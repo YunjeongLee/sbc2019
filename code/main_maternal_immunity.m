@@ -19,9 +19,9 @@ R0_val = zeros(num_grps_val, 1);
 X0_val = 0;
 
 % Parameters
-sigma_val = 1/11/365;
-tau_val = 1/2/365;
-tauP_val = 1/2/365;
+sigma_val = 1/14/365;
+tau_val = 1/4/365;
+tauP_val = 1/3/365;
 sigma0_val = 1/100/365;
 mu_val = [zeros(num_grps_val-1, 1); 1/10/365];
 rho1_val = 0.5;
