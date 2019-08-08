@@ -104,6 +104,7 @@ for i = 1:length(year6_vaccine)
 end
 
 %% Visualization
+mkdir('results/change_vacc_prop');
 group_for_title_baby = '0-1 year';
 group_for_title_all = '20+ year';
 text_for_legend = {'6 years: 10%, 11 years: 10%', '6 years: 70%, 11 years: 10%', ...
