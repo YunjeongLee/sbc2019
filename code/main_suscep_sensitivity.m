@@ -69,6 +69,7 @@ time_stamp = 0:50*365;
 year6_vaccine = [0.1, 0.7, 0.7];
 year11_vaccine = [0.1, 0.1, 0.7];
 suscep_params = 0.5:0.1:1;
+for l = 1:length(suscep_params)
 incd_aggregate_baby = zeros(length(time_stamp), length(year6_vaccine));
 incd_aggregate_children = zeros(length(time_stamp), length(year6_vaccine));
 incd_aggregate_adult = zeros(length(time_stamp), length(year6_vaccine));
@@ -123,3 +124,4 @@ figure;
 bar(sum(incd_aggregate_baby(8*365+1:14*365, :))*1e6);
 set(gca, 'fontsize', 15);
 title('0-1 year')
+end
