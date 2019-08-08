@@ -72,8 +72,6 @@ suscep_params = 0.5:0.1:1;
 for l = 1:length(suscep_params)
     suscep = suscep_params(l);
     incd_aggregate_baby = zeros(length(time_stamp), length(year6_vaccine));
-    incd_aggregate_children = zeros(length(time_stamp), length(year6_vaccine));
-    incd_aggregate_adult = zeros(length(time_stamp), length(year6_vaccine));
     for i = 1:length(year6_vaccine)
         % Copy vaccine proportion
         p_val_temp = p_val;
@@ -103,14 +101,10 @@ for l = 1:length(suscep_params)
         
         incd = get_incidence(sol, params_temp, time_stamp);
         incd_aggregate_baby(:,i) = sum(incd(:, 1:4), 2);
-        incd_aggregate_children(:,i) = sum(incd(:, 11:15), 2);
-        incd_aggregate_adult(:,i) = sum(incd(:, 21:end), 2);
     end
     
     %% Visualization
     group_for_title_baby = '0-1 year';
-    group_for_title_children = '6-11 year';
-    group_for_title_adult = '20+ year';
     text_for_legend = {'6 years: 10%, 11 years: 10%', '6 years: 70%, 11 years: 10%', ...
         '6 years: 70%, 11 years: 70%'};
     xlims = [5*365+1, 25*365]/365;
