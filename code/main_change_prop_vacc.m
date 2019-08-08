@@ -98,7 +98,7 @@ for i = 1:length(year6_vaccine)
     options = odeset('NonNegative', 1:num_grps_val*9);
     [~, sol] = ode45(fode, time_stamp, y0, options);
     
-    incd = get_incidence(sol, params_temp, time_stamp);
+    incd = get_incidence(sol, params_temp);
     incd_aggregate_baby(:,i) = sum(incd(:, 1), 2);
     incd_aggregate_all(:,i) = sum(incd, 2);
 end
