@@ -1,4 +1,4 @@
-function incd = get_incidence(sol, params)
+function [incdI1, incdI2] = get_incidence(sol, params)
 %% Assign Parameter
 names = params(:,1);
 for k = 1:size(params,1)
