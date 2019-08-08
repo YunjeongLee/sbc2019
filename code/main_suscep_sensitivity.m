@@ -116,5 +116,5 @@ for l = 1:length(suscep_params)
     legend(text_for_legend)
     title(sprintf('p = %.2f', suscep))
     ylim(ylims)
-    set(gca, 'fontsize', 20);
+    set(gca, 'fontsize', 12);
 end
