@@ -15,13 +15,13 @@ if ~exist('f_A_', 'var')
     I3 = sol(:, 7*num_grps_+1:8*num_grps_);
     
     %% Incidence for I1
-    incdI1 = contact_matrix_ * (I1' + rho1_ * I2' + rho2_ * I3') .* S';
+    incdI1 = (contact_matrix_ * (I1' + rho1_ * I2' + rho2_ * I3') .* S')';
     
     %% Incidence for I2
-    incdI2 = contact_matrix_ * (I1' + rho1_ * I2' + rho2_ * I3') .* P1';
     
     %% Merge two incidences
     incd = incdI1' + incdI2';
+    incdI2 = (contact_matrix_ * (I1' + rho1_ * I2' + rho2_ * I3') .* P1')';
     
 else
     S = sol(:, 1:num_grps_);
@@ -32,13 +32,13 @@ else
     X0 = sol(:, 9*num_grps_+1);
     
     %% Incidence for I1
-    incdI1 = contact_matrix_ * (I1' + rho1_ * I2' + rho2_ * I3') .* (S + X0)';
+    incdI1 = (contact_matrix_ * (I1' + rho1_ * I2' + rho2_ * I3') .* S')';
     
     %% Incidence for I2
-    incdI2 = contact_matrix_ * (I1' + rho1_ * I2' + rho2_ * I3') .* P1';
-    
     %% Merge two incidences
     incd = incdI1' + incdI2';
+    incdI2 = (contact_matrix_ * (I1' + rho1_ * I2' + rho2_ * I3') ...
+        .* [P1(:, 1) + X0, P1(:, 2:end)]')';
     
 end
 end
