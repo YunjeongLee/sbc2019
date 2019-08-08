@@ -113,3 +113,30 @@ ylims = [0, 500];
 visualize(incd_aggregate_all, time_stamp, ttl_all, lgd, xlims, ylims)
 saveas(gca, 'results/maternal_immune/incd_all', 'png');
 
+%% Visualize as bar graph
+total_incd_baby = sum(incd_aggregate_baby);
+total_incd_all = sum(incd_aggregate_all);
+
+reduced_ratio_baby = 1 - total_incd_baby./max(total_incd_baby);
+reduced_ratio_all = 1 - total_incd_all./max(total_incd_all);
+
+figure('pos', [10 10 1600 700]);
+subplot(121)
+bar(reduced_ratio_baby*100);
+ylabel('reduced level (%)')
+x_labels = lgd(2:end);
+title('0-2 months babies')
+set(gca, 'fontsize', 20);
+set(gca,'XTickLabel', {'','',''});
+format_ticks(gca, x_labels);
+
+subplot(122)
+bar(reduced_ratio_all*100);
+ylabel('reduced level (%)')
+x_labels = lgd(2:end);
+title('All age groups')
+set(gca, 'fontsize', 20);
+set(gca,'XTickLabel', {'','',''});
+format_ticks(gca, x_labels);
+
+saveas(gca, 'results/maternal_immune/effect_change_maternal_prop.png', 'png');
