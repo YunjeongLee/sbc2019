@@ -109,8 +109,8 @@ group_for_title_baby = '0-1 year';
 group_for_title_all = '20+ year';
 text_for_legend = {'6 years: 10%, 11 years: 10%', '6 years: 70%, 11 years: 10%', ...
     '6 years: 70%, 11 years: 70%'};
-xlims = [5*365+1, 25*365]/365;
-ylims = [0, 10];
+xlims = [time_stamp(1), time_stamp(end)]/365;
+ylims = [0, 2];
 visualize(incd_aggregate_baby, time_stamp, group_for_title_baby, text_for_legend, xlims, ylims)
 ylims = [0, 300];
 visualize(incd_aggregate_all, time_stamp, group_for_title_all, text_for_legend, xlims, ylims)
