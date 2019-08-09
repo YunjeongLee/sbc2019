@@ -136,7 +136,7 @@ total_incd_all = sum(incd_aggregate_all(wts_period, :));
 reduced_ratio_baby = 1 - total_incd_baby./(total_incd_baby(1));
 reduced_ratio_all = 1 - total_incd_all./(total_incd_all(1));
 
-figure;
+figure('pos', [10 10 1600 700]);
 subplot(1,2,1)
 bar(reduced_ratio_baby(2:end)*100);
 ylabel('reduced level (%)')
