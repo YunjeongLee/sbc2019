@@ -81,20 +81,6 @@ for i = 1:length(frac_immune_mother_range)
     % Assign fractions of immuned mothers
     frac_immune_mother = frac_immune_mother_range(i);
     f_A_val = sigma_val * tauA * frac_immune_mother;
-    
-    % Parameters w.r.t. vaccine
-    p_val = [0.95 * ones(3, 1); 0.85; 0.1; 0.1; frac_immune_mother; frac_immune_mother; frac_immune_mother];
-    vaccine_age = [2/12, 4/12, 6/12, 18/12, 6, 11, 20, 25, 30]*365;
-
-    % Generate vaccine vector
-    vacc_val = zeros(num_grps_val, 1);
-    for k = 1:num_grps_val
-        f = p_val * VE;
-        for j = 1:length(vaccine_age)
-            vacc_val(k) = vacc_val(k) + f(j) * kDelta(age_grps(k), vaccine_age(j));
-        end
-    end
-    
     % Update params
     params_temp = params;
     params_temp{end-2, 2} = f_A_val;
