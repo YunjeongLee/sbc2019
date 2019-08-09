@@ -110,7 +110,8 @@ group_for_title_baby = '0-2 months babies';
 group_for_title_all = 'All age groups';
 text_for_legend = {};
 for i = 1:length(year6_vaccine)
-    text_for_legend{end+1} = sprintf('6 years: %d%%, 11 years: %d%%', year6_vaccine(i), year11_vaccine(i));
+    text_for_legend{end+1} = sprintf('6 years: %d%%, 11 years: %d%%', ...
+        year6_vaccine(i)*100, year11_vaccine(i)*100);
 end
 xlims = [10*365+1, time_stamp(end)]/365;
 ylims = [0, 2];
