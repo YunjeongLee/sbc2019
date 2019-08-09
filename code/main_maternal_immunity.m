@@ -74,7 +74,7 @@ params = {'contact_matrix', contact_matrix_val; ...
 %% Change maternal immunity values
 time_stamp = 0:50*365;
 tauA = 2.5*365; % unit: days
-frac_immune_mother_range = [0, 0.5, 0.8, 0.99];
+frac_immune_mother_range = [0, 0.3, 0.5, 0.7, 0.9];
 incd_aggregate_baby = zeros(length(time_stamp), length(frac_immune_mother_range));
 incd_aggregate_all = zeros(length(time_stamp), length(frac_immune_mother_range));
 for i = 1:length(frac_immune_mother_range)
