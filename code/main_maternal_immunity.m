@@ -85,7 +85,6 @@ for i = 1:length(frac_immune_mother_range)
     % Update params
     params_temp = params;
     params_temp{end-2, 2} = f_A_val;
-    params_temp{end-1, 2} = vacc_val;
     
     % Solve ode
     fode = @(t, y) model_pertussis_maternal(t, y, params_temp);
