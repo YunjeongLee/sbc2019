@@ -128,7 +128,7 @@ ylabel('reduced level (%)')
 yticks(0:5:50);
 x_labels = lgd(2:end);
 title('0-2 months babies')
-set(gca, 'fontsize', 18);
+set(gca, 'fontsize', 15);
 set(gca,'XTickLabel', {'','',''});
 format_ticks(gca, x_labels);
 ylim([0 50])
