@@ -129,33 +129,18 @@ total_incd_all = sum(incd_aggregate_all(wts_period, :));
 reduced_ratio_baby = 1 - total_incd_baby./max(total_incd_baby);
 reduced_ratio_all = 1 - total_incd_all./max(total_incd_all);
 
-figure('pos', [10 10 1600 700]);
-subplot(121)
+figure;
 bar(reduced_ratio_baby(2:end)*100);
 ylabel('reduced level (%)')
-yticks(0:5:30);
+yticks(0:5:25);
 x_labels = {sprintf('  6 years:  %d%% \n 11 years: %d%%', ...
     year6_vaccine(2)*100, year11_vaccine(2)*100), ...
     sprintf('  6 years:  %d%% \n 11 years: %d%%', ...
     year6_vaccine(3)*100, year11_vaccine(3)*100)};
 title('0-2 months babies')
-set(gca, 'fontsize', 20);
+set(gca, 'fontsize', 15);
 set(gca,'XTickLabel', {'','',''});
 format_ticks(gca, x_labels);
-ylim([0 30])
-
-subplot(122)
-bar(reduced_ratio_all(2:end)*100);
-ylabel('reduced level (%)')
-yticks(0:5:30);
-x_labels = {sprintf('  6 years:  %d%% \n 11 years: %d%%', ...
-    year6_vaccine(2)*100, year11_vaccine(2)*100), ...
-    sprintf('  6 years:  %d%% \n 11 years: %d%%', ...
-    year6_vaccine(3)*100, year11_vaccine(3)*100)};
-title('All age groups')
-set(gca, 'fontsize', 20);
-set(gca,'XTickLabel', {'','',''});
-format_ticks(gca, x_labels);
-ylim([0 30])
+ylim([0 25])
 
 saveas(gca, 'results/change_vacc_prop/effect_change_vaccine_prop.png', 'png');
